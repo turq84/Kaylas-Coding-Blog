@@ -32,7 +32,7 @@ const Intro = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div className="BioWrap">
+    <div className="IntroWrap">
       <div className="ImageContainer">
         <Image
           className="profilePic"
