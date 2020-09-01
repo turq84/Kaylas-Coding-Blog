@@ -18,7 +18,7 @@ const Contact = () => {
             fetch("/", {
               method: "POST",
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: encode({ "form-name": "contact-demo", ...values }),
+              // body: encode({ "form-name": "contact-demo", ...values }),
             })
               .then(() => {
                 alert("Success")
@@ -50,7 +50,7 @@ const Contact = () => {
           <FormContainer
             name="contact"
             action-xhr=""
-            method="post"
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
