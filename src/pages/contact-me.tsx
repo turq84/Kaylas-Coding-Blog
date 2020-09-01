@@ -4,6 +4,12 @@ import Layout from "../components/layout"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 
 const Contact = () => {
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   return (
     <Layout>
       <Container>
@@ -18,7 +24,7 @@ const Contact = () => {
             fetch("/", {
               method: "POST",
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              // body: encode({ "form-name": "contact-demo", ...values }),
+              body: encode({ "form-name": "contact-demo", ...values }),
             })
               .then(() => {
                 alert("Success")
