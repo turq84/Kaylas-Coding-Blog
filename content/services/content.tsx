@@ -1,28 +1,21 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Context from "../../store/context"
 
 const ServiceContent = () => {
-  const { state } = useContext(Context)
+  // const Button = styled(Link)`
+  //   padding: 15px 30px;
+  //   width: max-content;
+  //   border-radius: 5px;
+  //   color: ${state?.isDark ? `var(--bgDark)` : `var(--bg)`};
+  //   background-color: ${state?.isDark ? `var(--linkDark)` : `var(--link)`};
+  //   border: none;
+  //   /* background-image: #ffffff repeating-linear-gradient( 135deg, #ff5a54, #ff5a54 20px, transparent 20px, transparent 40px, #3fa9f5 40px, #3fa9f5 60px, transparent 60px, transparent 80px ) */
 
-  const Span = styled.span`
-    color: ${state?.isDark ? `var(--linkDark)` : `var(--link)`};
-  `
-
-  const Button = styled(Link)`
-    padding: 15px 30px;
-    width: max-content;
-    border-radius: 5px;
-    color: ${state?.isDark ? `var(--bgDark)` : `var(--bg)`};
-    background-color: ${state?.isDark ? `var(--linkDark)` : `var(--link)`};
-    border: none;
-    /* background-image: #ffffff repeating-linear-gradient( 135deg, #ff5a54, #ff5a54 20px, transparent 20px, transparent 40px, #3fa9f5 40px, #3fa9f5 60px, transparent 60px, transparent 80px ) */
-
-    &:hover {
-      cursor: pointer;
-    }
-  `
+  //   &:hover {
+  //     cursor: pointer;
+  //   }
+  // `
 
   return (
     <>

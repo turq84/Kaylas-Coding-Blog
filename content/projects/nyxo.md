@@ -2,6 +2,7 @@
 title: "Nyxo"
 thumbnailBlog: "./nyxo.png"
 url: "https://www.nyxo.app"
+repo: "https://github.com/hello-nyxo/nyxo-website"
 keywords: ["sleep better", "nyxo app"]
 ---
 

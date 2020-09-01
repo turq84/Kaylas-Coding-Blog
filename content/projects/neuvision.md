@@ -2,7 +2,7 @@
 title: "NeuVision"
 thumbnailBlog: "./NeuVision.png"
 url: "https://hungry-elion-3babd3.netlify.app/"
-repo: "https://github.com/turq84/NeuVision-Gatsby-TemplateN"
+repo: "https://github.com/turq84/NeuVision-Gatsby-Template"
 keywords:
   [
     "how to find a job in finland",

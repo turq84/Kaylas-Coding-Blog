@@ -1,4 +1,4 @@
-body {
+:root {
   --bg: #fff;
   --text: rgb(41, 41, 41);
   --textTitle: #222;
@@ -6,7 +6,7 @@ body {
   --hr: hsla(0, 0%, 0%, 0.2);
   --header: #131313;
   /* --link: #e4007c; */
-  --link: rgb(228, 0, 124, 0.6);
+  --pink: rgb(228, 0, 124, 0.6);
   --small: var(--text);
   --shadow: 0px 5px 15px rgba(2, 38, 64, 0.1);
   --shadowHover: 0px 5px 15px rgba(2, 38, 64, 0.25);
