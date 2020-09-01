@@ -1,100 +1,40 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import { Formik, Form, Field, ErrorMessage } from "formik"
 
 const Contact = () => {
-  const encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&")
-  }
-
   return (
     <Layout>
       <Container>
-        <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-          }}
-          onSubmit={(values, actions) => {
-            fetch("/", {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: encode({ "form-name": "contact-demo", ...values }),
-            })
-              .then(() => {
-                alert("Success")
-                actions.resetForm()
-              })
-              .catch(() => {
-                alert("Error")
-              })
-              .finally(() => actions.setSubmitting(false))
-          }}
-          validate={values => {
-            const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-            const errors = {}
-            if (!values.name) {
-              errors.name = "Name Required"
-            }
-            if (!values.email || !emailRegex.test(values.email)) {
-              errors.email = "Valid Email Required"
-            }
-            if (!values.subject) {
-              errors.subject = "Subject Required"
-            }
-            if (!values.message) {
-              errors.message = "Message Required"
-            }
-            return errors
-          }}
+        <h1>Contact</h1>
+        <Form
+          name="contact"
+          action-xhr=""
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
-          <FormContainer
-            name="contact"
-            action-xhr=""
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <Input type="text" name="name" id="name" placeholder="Name" />
+          <input type="hidden" name="form-name" value="contact" />
+          <Input type="text" name="name" id="name" placeholder="Name" />
 
-            <Input type="email" name="email" id="email" placeholder="Email" />
+          <Input type="email" name="email" id="email" placeholder="Email" />
 
-            <Input
-              type="text"
-              name="subject"
-              id="subject"
-              placeholder="Subject"
-            />
+          <Input
+            type="text"
+            name="subject"
+            id="subject"
+            placeholder="Subject"
+          />
 
-            <TextArea
-              name="message"
-              component="textarea"
-              id="message"
-              rows={5}
-              placeholder="Message"
-            />
-            <ErrorContainer>
-              <ErrorMessage name="message" />
-            </ErrorContainer>
-            <ErrorContainer>
-              <ErrorMessage name="subject" />
-            </ErrorContainer>
-            <ErrorContainer>
-              <ErrorMessage name="email" />
-            </ErrorContainer>
-            <ErrorContainer>
-              <ErrorMessage name="name" />
-            </ErrorContainer>
-            <br />
-            <Button type="submit">Send Message</Button>
-          </FormContainer>
-        </Formik>
+          <TextArea
+            name="message"
+            id="message"
+            rows={5}
+            placeholder="Message"
+          />
+
+          <Button type="submit">Send Message</Button>
+        </Form>
       </Container>
     </Layout>
   )
@@ -117,7 +57,7 @@ const Container = styled.div`
   }
 `
 
-const Input = styled(Field)`
+const Input = styled.input`
   width: 100%;
   padding: 10px 15px;
   margin-bottom: 20px;
@@ -125,7 +65,7 @@ const Input = styled(Field)`
   border-bottom: 1px solid;
 `
 
-const TextArea = styled(Field)`
+const TextArea = styled.textarea`
   width: 100%;
   padding: 10px 15px;
   margin-bottom: 20px;
@@ -158,12 +98,6 @@ const Button = styled.button`
   border-image: initial;
   transition: all 0.3s ease 0s;
 `
-const FormContainer = styled(Form)`
+const Form = styled.form`
   margin-top: 80px;
-`
-
-const ErrorContainer = styled.div`
-  color: var(--pink);
-  margin: 20px;
-  display: inline-block;
 `
