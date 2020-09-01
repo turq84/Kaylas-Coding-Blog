@@ -1,8 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
+import Context from "../store/context"
 import Layout from "../components/layout"
 
 const Contact = () => {
+  const { state } = useContext(Context)
+
   return (
     <Layout>
       <Container>
