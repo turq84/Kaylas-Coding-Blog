@@ -4,7 +4,7 @@ date: "2020-10-04"
 title: "Deploy Your Gatsby Website to Netlify"
 author: Kayla Gordon
 tags: ["Gatsby", "Netlify", "Hosting"]
-thumbnail: "./deploy-gatsby.png"
+thumbnailBlog: "./deploy-gatsby.png"
 keywords:
   [
     "how to deploy gatsby",

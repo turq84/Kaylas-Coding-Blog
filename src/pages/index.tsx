@@ -21,9 +21,15 @@ const BlogIndex = ({ data, location }) => {
   const posts = allMarkdownRemark
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <Intro />
-      {/* SEO */}
+      <SEO
+        title="Home"
+        description="Read and learn about coding with GatsbyJS, AWS, Netlify, and more."
+        date="October 4, 2020"
+        keywords="Coding tutorials"
+        pathName="/"
+      />
 
       <Container>
         <Wrapper>
