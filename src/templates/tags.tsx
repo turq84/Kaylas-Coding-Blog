@@ -11,12 +11,12 @@ import { Link, graphql } from "gatsby"
 const Tags = ({ pageContext, data }) => {
   const allMarkdownRemark = data.allMarkdownRemark
   const { tag } = pageContext
-  const { edges, totalCount } = allMarkdownRemark
+  const { nodes, totalCount } = allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}".`
 
-  const posts = allMarkdownRemark.nodes
+  const posts = nodes
 
   return (
     <Layout>
@@ -99,6 +99,7 @@ export const TagsTemplateQuery = graphql`
           title
         }
       }
+      totalCount
     }
     site {
       siteMetadata {
