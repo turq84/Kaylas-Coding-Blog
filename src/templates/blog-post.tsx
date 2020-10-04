@@ -6,6 +6,7 @@ import SEO from "../components/SEO/seo"
 import styled from "styled-components"
 import { PostTags, Tags } from "../components/StyledComponents/styledComponents"
 import Context from "../store/context"
+import { kebabCase } from "lodash"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -38,8 +39,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
               <Footer>
                 <PostTags>
-                  {post.frontmatter.tags?.map((link, index) => (
-                    <Tags to={link}>#{link}</Tags>
+                  {post.frontmatter.tags?.map((tag, index) => (
+                    <Tags to={`/tags/${kebabCase(tag)}`}>#{tag}</Tags>
                   ))}
                 </PostTags>
               </Footer>

@@ -10,7 +10,11 @@ const Tags = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Tags" pathName="/tags" />
+      <SEO
+        title="Tags"
+        description="Find blog posts based on the subjects that interest you."
+        pathName="/tags"
+      />
       <Container>
         <h1 className="centerText">Tags</h1>
         <p className="centerText">

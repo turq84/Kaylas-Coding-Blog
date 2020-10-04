@@ -20,7 +20,12 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <SEO title={tag} />
+      <SEO
+        title={tag}
+        description={`All posts for ${tag}`}
+        tags={`tags/${tag}`}
+        pathName={`tags/${tag}`}
+      />
       <Container>
         <h1 className="centerText">{tag}</h1>
         <p className="centerText">{tagHeader}</p>
