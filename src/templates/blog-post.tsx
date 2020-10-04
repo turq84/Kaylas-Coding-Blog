@@ -1,47 +1,16 @@
 import React, { useContext } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import Bio from "../components/Bio/bio"
 import Layout from "../components/layout"
 import SEO from "../components/SEO/seo"
 import styled from "styled-components"
-import {
-  Container,
-  deviceMax,
-  deviceMin,
-  PostTags,
-  Tags,
-} from "../components/StyledComponents/styledComponents"
+import { PostTags, Tags } from "../components/StyledComponents/styledComponents"
 import Context from "../store/context"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { state } = useContext(Context)
-
-  // const HeroWrap = styled.div`
-  //   background: linear-gradient(
-  //     90deg,
-  //     rgba(0, 0, 0, 0) 0%,
-  //     rgba(0, 0, 0, 0) 30%,
-  //     rgba(233, 162, 188, 0.1) 30%,
-  //     rgba(233, 162, 188, 0.1) 30%
-  //   );
-  //   position: relative;
-  //   padding: 0 20px;
-  //   margin-bottom: 30px;
-  //   overflow-x: hidden;
-
-  //   @media ${deviceMin.mobileL} {
-  //     padding: 0;
-  //     margin-bottom: 0;
-  //   }
-
-  //   @media ${deviceMax.mobileL} {
-  //     background: var(--bgDabgrk);
-  //     background: ${state?.isDark ? `var(--bgDabgrk)` : `var(--bg)`};
-  //   }
-  // `
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -57,7 +26,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <PostDetailsWrapper>
           <PostPreview>
             <Image
-              fluid={post.frontmatter.thumbnailBlog.childImageSharp.fluid}
+              fluid={post.frontmatter.thumbnailBlog?.childImageSharp.fluid}
               alt={post.frontmatter.title}
             />
           </PostPreview>

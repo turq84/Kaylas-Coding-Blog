@@ -5,26 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/SEO/seo"
 import {
   Container,
-  Excerpt,
-  imgPost,
-  H2,
   LatestStories,
-  Month,
-  P,
-  PostCard,
   PostCardContainer,
-  PostContent,
-  PostDate,
-  PostDateAndPreview,
-  PostPreview,
-  PostTags,
-  PostTitle,
-  Tags,
-  ReadMore,
-  ReadMoreLink,
+  Wrapper,
+  AllTags,
 } from "../components/StyledComponents/styledComponents"
 import styled from "styled-components"
 import Image from "gatsby-image"
+import Post from "../components/Posts/PostCard"
 
 const BlogIndex = ({ data, location }) => {
   const { allMarkdownRemark, site } = data
@@ -38,34 +26,20 @@ const BlogIndex = ({ data, location }) => {
       {/* SEO */}
 
       <Container>
-        <LatestStories>Latest Posts</LatestStories>
+        <Wrapper>
+          <LatestStories>Latest Posts</LatestStories>
+          <AllTags to="/tags">All Tags</AllTags>
+        </Wrapper>
         <PostCardContainer>
           {posts.nodes.map(({ excerpt, frontmatter, fields }) => {
             const title = frontmatter.title || fields.slug
             return (
-              <PostCard to={fields.slug}>
-                <PostDateAndPreview>
-                  <PostDate>
-                    {frontmatter.day}
-                    <Month>{frontmatter.month}</Month>
-                  </PostDate>
-                  <PostPreview>
-                    <Link to={fields.slug}>{/* <imgPost></imgPost> */}</Link>
-                  </PostPreview>
-                </PostDateAndPreview>
-                <PostContent>
-                  <PostTags>
-                    {frontmatter.tags.map((link, index) => (
-                      <Tags to={link}>#{link}</Tags>
-                    ))}
-                  </PostTags>
-                  <PostTitle>{title}</PostTitle>
-                  <Excerpt>{excerpt}</Excerpt>
-                  <ReadMore>
-                    <ReadMoreLink to={fields.slug}>Read More</ReadMoreLink>
-                  </ReadMore>
-                </PostContent>
-              </PostCard>
+              <Post
+                excerpt={excerpt}
+                fields={fields}
+                frontmatter={frontmatter}
+                title={title}
+              />
             )
           })}
         </PostCardContainer>

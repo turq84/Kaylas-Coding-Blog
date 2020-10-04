@@ -12,19 +12,13 @@ const Projects = ({ data }) => {
   const { state } = useContext(Context)
 
   const Project = styled.div`
-    /* border: 2px solid var(--text); */
     padding: 20px;
     width: 100%;
     margin-bottom: 30px;
-    /* box-shadow: ${state?.isDark ? `var(--shadowDark)` : `var(--shadow)`}; */
     border-radius: 10px;
   `
 
-  const Hr = styled.hr`
-    /* background-color: ${
-      state?.isDark ? `var(--textDark)` : `var(--text)`
-    }; */
-  `
+  const Hr = styled.hr``
 
   return (
     <Layout>

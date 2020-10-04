@@ -214,6 +214,7 @@ export const LatestStories = styled.div`
   letter-spacing: 0.17em;
   position: relative;
   margin-bottom: 30px;
+  display: inline-block;
 
   &::after {
     content: "";
@@ -345,7 +346,7 @@ export const Tags = styled(Link)`
   margin-right: 30px;
   font-size: 14px;
   font-weight: 400;
-  color: rgb(209, 0, 104);
+  color: var(--pink);
   box-shadow: none;
 `
 
@@ -479,4 +480,16 @@ export const Four0FourH1 = styled.h1`
   display: block;
   font-size: 24px;
   font-weight: bold;
+`
+export const AllTags = styled(Link)`
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Fira Sans", sans-serif;
+  letter-spacing: 0.17em;
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `
